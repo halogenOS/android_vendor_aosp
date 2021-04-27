@@ -60,6 +60,10 @@ $(foreach f,$(wildcard $(CUSTOM_VENDOR_DIR)/prebuilt/common/etc/init/*.rc),\
 PRODUCT_COPY_FILES += \
     $(CUSTOM_VENDOR_DIR)/prebuilt/common/lib/content-types.properties:$(TARGET_COPY_OUT_SYSTEM)/lib/content-types.properties
 
+# IORap app launch prefetching using Perfetto traces and madvise
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.iorapd.enable=true
+
 # Enable Android Beam on all targets
 PRODUCT_COPY_FILES += \
     $(CUSTOM_VENDOR_DIR)/config/permissions/android.software.nfc.beam.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.software.nfc.beam.xml
