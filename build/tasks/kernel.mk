@@ -206,6 +206,9 @@ ifneq ($(TARGET_KERNEL_MODULES),)
 endif
 
 PATH_OVERRIDE += PATH=$(KERNEL_TOOLCHAIN_DIR_gcc):$$PATH
+ifeq ($(KERNEL_ARCH),arm64)
+PATH_OVERRIDE += PATH=$(KERNEL_TOOLCHAIN_arm):$$PATH
+endif
 
 # System tools are no longer allowed on 10+
 PATH_OVERRIDE += $(TOOLS_PATH_OVERRIDE)
